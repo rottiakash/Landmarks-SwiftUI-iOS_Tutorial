@@ -4,8 +4,12 @@
 //
 //  Created by Akash Rotti on 16/12/20.
 //
-
+import Combine
 import Foundation
+
+final class ModelData: ObservableObject {
+   @Published var landmarks: [Landmark] = load("landmarkData.json")
+}
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -29,4 +33,4 @@ func load<T: Decodable>(_ filename: String) -> T {
     }
 }
 
-var landmarks: [Landmark] = load("landmarkData.json")
+
